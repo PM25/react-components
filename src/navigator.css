@@ -137,12 +137,16 @@ a:link {
     line-height: 40px;
 }
 
-#side-nav .sidenav-btn {
-    position: relative;
-    color: white;
+#side-nav .sidenav-btn-wrapper {
+    position: absolute;
+    text-align: center;
 
-    left: 1.15em;
-    top: 9px;
+    left: 0.7em;
+    z-index: 5;
+    width: 50px;
+    height: 50px;
+    color: white;
+    line-height: 50px;
 }
 
 #side-nav a:hover {
@@ -172,7 +176,10 @@ a:link {
 
 #side-nav .profile {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-size: cover;
     background: #2ca8c7;
     background-image: radial-gradient(circle, #5fd4f1, #1c9bbb);
@@ -185,7 +192,6 @@ a:link {
 #side-nav .profile img {
     display: block;
     position: relative;
-    margin: auto;
 
     width: 45%;
     border-radius: 50%;
