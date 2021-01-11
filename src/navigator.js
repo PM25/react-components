@@ -1,28 +1,40 @@
-import React from 'react';
-import './navigator.css';
-import HomeNavigator from './homenav';
-import SideNavigator from './sidenav';
+import React from "react";
+import "./navigator.css";
+import HomeNavigator from "./homenav";
+import SideNavigator from "./sidenav";
 
 class Navigator extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sidenav: false
-        }
+            sidenav: {
+                active: false,
+            },
+        };
     }
 
     toggleSidenav() {
-        let show_sidenav = this.state.sidenav;
-        this.setState({sidenav: !show_sidenav});
+        let active_sidenav = this.state.sidenav.active;
+        this.setState((prevState) => ({
+            sidenav: {
+                ...prevState,
+                active: !active_sidenav,
+            },
+        }));
     }
 
     render() {
-        return(
+        return (
             <div name="navigator">
-                <HomeNavigator toggleSidenav={() => this.toggleSidenav()}></HomeNavigator>
-                <SideNavigator show={this.state.sidenav} toggleSidenav={() => this.toggleSidenav()}></SideNavigator>
+                <HomeNavigator
+                    toggleSidenav={() => this.toggleSidenav()}
+                ></HomeNavigator>
+                <SideNavigator
+                    show={this.state.sidenav.active}
+                    toggleSidenav={() => this.toggleSidenav()}
+                ></SideNavigator>
             </div>
-        )
+        );
     }
 }
 

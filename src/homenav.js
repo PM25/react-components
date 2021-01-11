@@ -1,91 +1,135 @@
-import React from 'react';
+import React, { Component } from "react";
 // import ReactPlayer from "react-player";
-import ReactPlayer from 'react-player/lazy'
-import './navigator.css';
+import ReactPlayer from "react-player/lazy";
+import "./navigator.css";
 
-class Button extends React.Component {    
+class Button extends Component {
     render() {
-        if (this.props.url){
-            return (
-                <li className={"btn icons " + this.props.class.join(' ')} onClick={() => this.props.onClick()}>
+        return (
+            <li
+                className={"btn " + this.props.classList.join(" ")}
+                onClick={() => this.props.onClick()}
+            >
+                {this.props.url ? (
                     <a href={this.props.url}>
                         <i className={this.props.icon}></i>
                     </a>
-                </li>
-            );
-        } else {
-            return (
-                <li className={"btn icons " + this.props.class.join(' ')} onClick={() => this.props.onClick()}>
+                ) : (
                     <i className={this.props.icon}></i>
-                </li>  
-            );
-        }
+                )}
+            </li>
+        );
     }
 }
 
-class HomeNavigator extends React.Component {
+class RippleButton extends Component {
+    render() {
+        return (
+            <li
+                className={"btn icons " + this.props.classList.join(" ")}
+                onClick={() => this.props.onClick()}
+                onMouseDown={() => this.props.onMouseDown()}
+            >
+                <i className={this.props.icon}>
+                    <div
+                        className={
+                            this.props.ripple_status ? "ripple-effect" : ""
+                        }
+                    ></div>
+                </i>
+            </li>
+        );
+    }
+}
+
+class HomeNavigator extends Component {
     constructor(props) {
         super(props);
         this.state = {
             sidenav: {
-                icon: "fas fa-bars",
-                class: ["sidenav-btn", "ripple"],
+                icon: "fas fa-bars sidenav-btn ripple",
+                classList: [],
+                ripple_effect: true,
+                ripple_status: false,
             },
             home: {
                 icon: "fas fa-home",
-                class: [],
+                classList: [],
                 url: "/c/homepage",
-                active: false
+                active: false,
             },
             language: {
                 icon: "fas fa-language",
-                class: [],
-                active: false
+                classList: [],
+                active: false,
+                active_effect: true,
             },
             music: {
                 icon: "fas fa-music",
-                class: [],
-                active: false
+                classList: [],
+                active: false,
+                active_effect: true,
             },
             toolbar: {
                 icon: "fas fa-caret-right",
-                class: [],
+                classList: [],
                 active: false,
-                list: ["language", "music"]
-            }
-        }
+                list: ["language", "music"],
+            },
+        };
         this.collapse_toolbar();
     }
 
+    SidenavOn() {
+        this.setState((prevState) => ({
+            sidenav: {
+                ...prevState.sidenav,
+                ripple_status: true,
+            },
+        }));
+    }
+
+    toggleSidenav() {
+        this.props.toggleSidenav();
+        setTimeout(() => {
+            this.setState((prevState) => ({
+                sidenav: {
+                    ...prevState.sidenav,
+                    ripple_status: false,
+                },
+            }));
+        }, 200);
+    }
+
     toggleMusic() {
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
             music: {
                 ...prevState.music,
-                active: !this.state.music.active
-            }
+                active: !this.state.music.active,
+            },
         }));
     }
 
     toggleLanguage() {
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
             language: {
                 ...prevState.language,
-                active: !this.state.language.active
-            }
+                active: !this.state.language.active,
+            },
         }));
     }
 
     toggleToolbar() {
         let active = !this.state.toolbar.active;
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
             toolbar: {
                 ...prevState.toolbar,
-                icon: active? "fas fa-caret-left" : "fas fa-caret-right",
-                active: active
-            }
+                icon: active ? "fas fa-caret-left" : "fas fa-caret-right",
+                active: active,
+            },
         }));
-        if(active) {
-           this.expand_toolbar(); 
+        if (active) {
+            this.expand_toolbar();
         } else {
             this.collapse_toolbar();
         }
@@ -93,16 +137,16 @@ class HomeNavigator extends React.Component {
 
     expand_toolbar() {
         this.state.toolbar.list.forEach((key) => {
-            let index = this.state[key].class.indexOf("toolbar");
+            let index = this.state[key].classList.indexOf("toolbar");
             if (index !== -1) {
-                this.state[key].class.splice(index, 1);
+                this.state[key].classList.splice(index, 1);
             }
         });
     }
 
     collapse_toolbar() {
         this.state.toolbar.list.forEach((key) => {
-            this.state[key].class.push("toolbar");
+            this.state[key].classList.push("toolbar");
         });
     }
 
@@ -110,24 +154,63 @@ class HomeNavigator extends React.Component {
         return (
             <nav id="home-nav">
                 <ul>
-                    {this.renderButton(this.state.sidenav, this.props.toggleSidenav)}
+                    {this.renderButton(
+                        this.state.sidenav,
+                        () => this.toggleSidenav(),
+                        () => this.SidenavOn()
+                    )}
                     {this.renderButton(this.state.home)}
-                    {this.renderButton(this.state.music, () => this.toggleMusic())}
-                    {this.renderButton(this.state.language, () => this.toggleLanguage())}
-                    {this.renderButton(this.state.toolbar, () => this.toggleToolbar())}
+                    {this.renderButton(this.state.music, () =>
+                        this.toggleMusic()
+                    )}
+                    {this.renderButton(this.state.language, () =>
+                        this.toggleLanguage()
+                    )}
+                    {this.renderButton(this.state.toolbar, () =>
+                        this.toggleToolbar()
+                    )}
                 </ul>
-                {this.renderMusicPlayer()}          
+                {this.renderMusicPlayer()}
             </nav>
         );
     }
 
-    renderButton(state, command) {
-        return(<Button icon={state.icon} class={state.class} url={state.url} onClick={command}></Button>);
+    renderButton(state, onClick, onMouseDown) {
+        let classList = state.classList.slice();
+        if (state.active_effect && state.active) {
+            classList.push("active");
+        }
+
+        if (state.ripple_effect) {
+            return (
+                <RippleButton
+                    icon={state.icon}
+                    classList={classList}
+                    active={state.active}
+                    ripple_status={state.ripple_status}
+                    onClick={onClick}
+                    onMouseDown={onMouseDown}
+                ></RippleButton>
+            );
+        } else {
+            return (
+                <Button
+                    icon={state.icon}
+                    classList={classList}
+                    url={state.url}
+                    active={state.active}
+                    onClick={onClick}
+                ></Button>
+            );
+        }
     }
 
     renderMusicPlayer() {
-        return(
-            <div id="music-player" className={this.state.music.active? "show" : ""}>
+        return (
+            <div
+                id="music-player"
+                className={this.state.music.active ? "show" : ""}
+            >
                 <ReactPlayer
                     url="https://soundcloud.com/jason-huang-200883547/sets/plusmore"
                     width={"100%"}
@@ -145,9 +228,9 @@ class HomeNavigator extends React.Component {
                                 single_active: true,
                                 show_reposts: false,
                                 show_teaser: false,
-                                visual: false
-                            }
-                        }
+                                visual: false,
+                            },
+                        },
                     }}
                 />
             </div>
