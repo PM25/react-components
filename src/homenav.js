@@ -212,7 +212,9 @@ class HomeNavigator extends Component {
                 className={this.state.music.active ? "show" : ""}
             >
                 <ReactPlayer
-                    url="https://soundcloud.com/jason-huang-200883547/sets/plusmore"
+                    url={
+                        "https://soundcloud.com/jason-huang-200883547/sets/plusmore"
+                    }
                     width={"100%"}
                     height={"80px"}
                     config={{

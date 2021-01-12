@@ -162,9 +162,6 @@ a:link {
 }
 
 #side-nav .icon {
-    text-align: center;
-
-    width: 1.5em;
     margin-right: 0.2em;
 }
 
@@ -243,6 +240,12 @@ a:link {
 }
 
 /* Others */
+.icon {
+    text-align: center;
+
+    width: 1.5em;
+}
+
 .btn {
     cursor: pointer;
 }
