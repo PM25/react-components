@@ -1,6 +1,7 @@
 import react, { Component } from "react";
 import "./about.css";
 import Profile from "./profile";
+import Intro from "./intro";
 
 export default class About extends Component {
     constructor(props) {
@@ -8,6 +9,11 @@ export default class About extends Component {
     }
 
     render() {
-        return <Profile></Profile>;
+        return (
+            <div className="about">
+                <Profile></Profile>
+                <Intro></Intro>
+            </div>
+        );
     }
 }
