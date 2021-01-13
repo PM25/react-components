@@ -1,7 +1,7 @@
 import react, { Component } from "react";
 import "./about.css";
 import Profile from "./profile";
-import Intro from "./intro";
+import IntroSection from "./intro";
 
 export default class About extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ export default class About extends Component {
         return (
             <div className="about">
                 <Profile></Profile>
-                <Intro></Intro>
+                <IntroSection></IntroSection>
             </div>
         );
     }

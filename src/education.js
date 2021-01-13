@@ -5,7 +5,7 @@ import nccuLogo from "./img/nccu_logo.webp";
 import ncnuLogo from "./img/ncnu_logo.webp";
 import tcsshLogo from "./img/tcssh_logo.webp";
 
-class Edu extends Component {
+class Education extends Component {
     render() {
         return (
             <div className={"container " + this.props.status}>
@@ -26,7 +26,7 @@ class Edu extends Component {
     }
 }
 
-export default class Education extends Component {
+export default class EducationSection extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -76,9 +76,6 @@ export default class Education extends Component {
                             {this.renderEdu(this.state.nccu)}
                             {this.renderEdu(this.state.ncnu)}
                             {this.renderEdu(this.state.tcssh)}
-                            {/* <div class="container before"><div class="content"><div class="school"><img src="/img/nccu_logo.webp"><span>National Chengchi University</span></div><div class="major"><span>Bachelor of Science, Computer Science</span><span><br>2018.9 - 2020.6</span></div></div></div> */}
-                            {/* <div class="container before"><div class="content"><div class="school"><img src="/img/ncnu_logo.webp"><span>National Chi Nan University</span></div><div class="major"><span>Bachelor of Science, Computer Science and Information Engineering</span><span><br>2016.9 - 2018.6</span></div></div></div> */}
-                            {/* <div class="container before"><div class="content"><div class="school"><img src="/img/tcssh_logo.webp"><span>Taichung Second Senior High School</span></div><div class="major"><span>Senior High School, Regular</span><span><br>2013.9 - 2016.6</span></div></div></div> */}
                         </div>
                     </div>
                 </div>
@@ -88,14 +85,14 @@ export default class Education extends Component {
 
     renderEdu(state) {
         return (
-            <Edu
+            <Education
                 status={state.status}
                 name={state.name}
                 degree={state.degree}
                 department={state.department}
                 period={state.period}
                 logo={state.logo}
-            ></Edu>
+            ></Education>
         );
     }
 }

@@ -1,15 +1,13 @@
 import react, { Component } from "react";
-import Education from "./education.js";
+import EducationSection from "./education.js";
+import BioSection from "./bio.js";
 
-export default class Intro extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+export default class IntroSection extends Component {
     render() {
         return (
-            <div id="intro">
-                <Education></Education>
+            <div id="intro" className="section">
+                <EducationSection></EducationSection>
+                <BioSection></BioSection>
             </div>
         );
     }
