@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import "./navigator.css";
 import HomeNavigator from "./homenav";
 import SideNavigator from "./sidenav";
+import OutsideClickHandler from "react-outside-click-handler";
 
-class Navigator extends React.Component {
+export default class Navigator extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,6 +12,7 @@ class Navigator extends React.Component {
                 active: false,
             },
         };
+        this.toggleSidenav = this.toggleSidenav.bind(this);
     }
 
     toggleSidenav() {
@@ -23,19 +25,32 @@ class Navigator extends React.Component {
         }));
     }
 
+    closeSidenav() {
+        this.setState((prevState) => ({
+            sidenav: {
+                ...prevState,
+                active: false,
+            },
+        }));
+    }
+
     render() {
         return (
-            <div name="navigator">
-                <HomeNavigator
-                    toggleSidenav={() => this.toggleSidenav()}
-                ></HomeNavigator>
-                <SideNavigator
-                    show={this.state.sidenav.active}
-                    toggleSidenav={() => this.toggleSidenav()}
-                ></SideNavigator>
-            </div>
+            <OutsideClickHandler
+                onOutsideClick={() => {
+                    this.closeSidenav();
+                }}
+            >
+                <div name="navigator">
+                    <HomeNavigator
+                        toggleSidenav={() => this.toggleSidenav()}
+                    ></HomeNavigator>
+                    <SideNavigator
+                        show={this.state.sidenav.active}
+                        toggleSidenav={() => this.toggleSidenav()}
+                    ></SideNavigator>
+                </div>
+            </OutsideClickHandler>
         );
     }
 }
-
-export default Navigator;

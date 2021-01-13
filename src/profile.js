@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./about.css";
 import profileImg from "./img/pm2.jpeg";
 
-class Profile extends Component {
+export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -71,5 +71,3 @@ class Profile extends Component {
         );
     }
 }
-
-export default Profile;

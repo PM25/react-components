@@ -55,7 +55,7 @@ class Profile extends Component {
     }
 }
 
-class SideNavigator extends Component {
+export default class SideNavigator extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -176,5 +176,3 @@ class SideNavigator extends Component {
         );
     }
 }
-
-export default SideNavigator;

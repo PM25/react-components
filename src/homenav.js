@@ -42,7 +42,7 @@ class RippleButton extends Component {
     }
 }
 
-class HomeNavigator extends Component {
+export default class HomeNavigator extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -239,5 +239,3 @@ class HomeNavigator extends Component {
         );
     }
 }
-
-export default HomeNavigator;

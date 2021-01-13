@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Navigator from "./navigator";
-import Profile from "./profile";
+import About from "./about";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
     <React.StrictMode>
         <Navigator></Navigator>
-        <Profile></Profile>
+        <About></About>
     </React.StrictMode>,
     document.getElementById("root")
 );
