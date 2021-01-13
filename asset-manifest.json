@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-practice/static/css/main.5967c537.chunk.css",
-    "main.js": "/react-practice/static/js/main.36b5e60e.chunk.js",
-    "main.js.map": "/react-practice/static/js/main.36b5e60e.chunk.js.map",
+    "main.js": "/react-practice/static/js/main.eef5fe1e.chunk.js",
+    "main.js.map": "/react-practice/static/js/main.eef5fe1e.chunk.js.map",
     "reactPlayerDailyMotion.js": "/react-practice/static/js/reactPlayerDailyMotion.edb20f3d.chunk.js",
     "reactPlayerDailyMotion.js.map": "/react-practice/static/js/reactPlayerDailyMotion.edb20f3d.chunk.js.map",
     "reactPlayerFacebook.js": "/react-practice/static/js/reactPlayerFacebook.1c5ac454.chunk.js",
@@ -29,20 +29,24 @@
     "reactPlayerYouTube.js.map": "/react-practice/static/js/reactPlayerYouTube.873d273c.chunk.js.map",
     "runtime-main.js": "/react-practice/static/js/runtime-main.2ba7638b.js",
     "runtime-main.js.map": "/react-practice/static/js/runtime-main.2ba7638b.js.map",
-    "static/js/14.0ce88895.chunk.js": "/react-practice/static/js/14.0ce88895.chunk.js",
-    "static/js/14.0ce88895.chunk.js.map": "/react-practice/static/js/14.0ce88895.chunk.js.map",
+    "static/js/14.d81f7acb.chunk.js": "/react-practice/static/js/14.d81f7acb.chunk.js",
+    "static/js/14.d81f7acb.chunk.js.map": "/react-practice/static/js/14.d81f7acb.chunk.js.map",
     "static/js/15.3626aac3.chunk.js": "/react-practice/static/js/15.3626aac3.chunk.js",
     "static/js/15.3626aac3.chunk.js.map": "/react-practice/static/js/15.3626aac3.chunk.js.map",
     "index.html": "/react-practice/index.html",
     "static/css/main.5967c537.chunk.css.map": "/react-practice/static/css/main.5967c537.chunk.css.map",
-    "static/js/14.0ce88895.chunk.js.LICENSE.txt": "/react-practice/static/js/14.0ce88895.chunk.js.LICENSE.txt",
+    "static/js/14.d81f7acb.chunk.js.LICENSE.txt": "/react-practice/static/js/14.d81f7acb.chunk.js.LICENSE.txt",
+    "static/media/nccu_logo.368c0923.webp": "/react-practice/static/media/nccu_logo.368c0923.webp",
+    "static/media/ncnu_logo.50889c83.webp": "/react-practice/static/media/ncnu_logo.50889c83.webp",
+    "static/media/ntu_logo.1701240b.webp": "/react-practice/static/media/ntu_logo.1701240b.webp",
     "static/media/pm2.718fff4f.jpeg": "/react-practice/static/media/pm2.718fff4f.jpeg",
-    "static/media/profile.1adce55a.jpeg": "/react-practice/static/media/profile.1adce55a.jpeg"
+    "static/media/profile.1adce55a.jpeg": "/react-practice/static/media/profile.1adce55a.jpeg",
+    "static/media/tcssh_logo.2193e933.webp": "/react-practice/static/media/tcssh_logo.2193e933.webp"
   },
   "entrypoints": [
     "static/js/runtime-main.2ba7638b.js",
-    "static/js/14.0ce88895.chunk.js",
+    "static/js/14.d81f7acb.chunk.js",
     "static/css/main.5967c537.chunk.css",
-    "static/js/main.36b5e60e.chunk.js"
+    "static/js/main.eef5fe1e.chunk.js"
   ]
 }
