@@ -8,6 +8,15 @@
     margin: 0.3em 0;
 }
 
+.focus-light {
+    background: #37506d33;
+}
+
+.focus {
+    background: #555;
+    color: white;
+}
+
 /* Header */
 #profile {
     background: #eeee;
@@ -224,9 +233,11 @@
 }
 
 /* Experiences */
-#exp > .content {
+#exp .content {
     display: flex;
     box-sizing: border-box;
+
+    height: 17em;
 }
 
 #exp .item {
@@ -234,11 +245,12 @@
     user-select: none;
     align-items: center;
 
-    padding: 0.3em 1.5em;
+    padding: 0.5em 0.5em;
+    margin: 0.3em 1em;
     border-radius: 0.5em;
 }
 
-#exp .item > img {
+#exp .item img {
     height: auto;
     width: 2.5em;
     margin-right: 0.6em;
@@ -246,15 +258,18 @@
 
 #exp .title-list {
     width: 45vw;
+    height: inherit;
     margin-right: 1em;
+    overflow: hidden;
 }
 
-#exp .title span:nth-child(1) {
+#exp .title div:nth-child(1) {
     font-size: 1.1em;
 }
 
-#exp .title span:nth-child(2) {
+#exp .title div:nth-child(2) {
     font-size: 0.9em;
+    font-weight: 370;
 }
 
 #exp .info {

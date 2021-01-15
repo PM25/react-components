@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./navigator.css";
 import profileImg from "./img/profile.jpeg";
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.min.css";
 
 class LinkButton extends Component {
     render() {
@@ -138,7 +140,7 @@ export default class SideNavigator extends Component {
                     name={"黃品硯"}
                     quote={"Don't Think, Imagine!"}
                 ></Profile>
-                <div className={"category"} data-simplebar>
+                <SimpleBar className={"category"}>
                     <ul>
                         {this.renderLinkButton(this.state.homepage)}
                         {this.renderLinkButton(this.state.projects)}
@@ -147,7 +149,7 @@ export default class SideNavigator extends Component {
                         {this.renderLinkButton(this.state.comments)}
                         {this.renderLinkButton(this.state.reports)}
                     </ul>
-                </div>
+                </SimpleBar>
             </div>
         );
     }

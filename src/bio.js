@@ -27,7 +27,7 @@ export default class BioSection extends Component {
             },
             bio: [
                 "Hi! I am Pin-Yen, you can also call me Jason.",
-                "I'm a M.S. student in Computer Science and Engineering at the National Taiwan University (NTU), advised by Prof. <a href='https://www.csie.ntu.edu.tw/~htlin/'>Hsuan-Tien Lin</a>. My research focuses on <b>artificial intelligence</b> and <b>machine learning</b>.",
+                "I'm a M.S. student in Computer Science and Information Engineering at the National Taiwan University (NTU), advised by Prof. <a href='https://www.csie.ntu.edu.tw/~htlin/'>Hsuan-Tien Lin</a>. My research focuses on <b>artificial intelligence</b> and <b>machine learning</b>.",
             ],
         };
     }
@@ -44,7 +44,12 @@ export default class BioSection extends Component {
                         {this.renderInfoBlock(this.state.email)}
                     </div>
                     <div className="paragraph">
-                        {this.renderBio(this.state.bio)}
+                        {/* add linebreak(div) at the end of each of sentence */}
+                        {this.state.bio.map((sentence, key) => {
+                            return (
+                                <div key={key}>{ReactHtmlParser(sentence)}</div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
@@ -60,15 +65,6 @@ export default class BioSection extends Component {
                 url={state.url}
             ></InfoBlock>
         );
-    }
-
-    // add linebreak(div) at the end of each of sentence
-    renderBio(sentences) {
-        let items = [];
-        sentences.forEach((sentence) => {
-            items.push(<div>{ReactHtmlParser(sentence)}</div>);
-        });
-        return items;
     }
 }
 
