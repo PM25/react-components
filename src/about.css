@@ -215,6 +215,7 @@
     display: none;
 
     font-size: 0.9em;
+    font-weight: 395;
 }
 
 #intro .edu-timeline .school:hover + .major {
@@ -269,7 +270,7 @@
 
 #exp .title div:nth-child(2) {
     font-size: 0.9em;
-    font-weight: 370;
+    font-weight: 395;
 }
 
 #exp .info {
