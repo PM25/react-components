@@ -1,4 +1,4 @@
-import react, { Component } from "react";
+import react, { Component, PureComponent } from "react";
 import uiucLogo from "./img/uiuc_logo.webp";
 import nccuLogo from "./img/nccu_logo.webp";
 import utLogo from "./img/ut_logo.webp";
@@ -101,12 +101,7 @@ export default class ExperienceSection extends Component {
         let idx = this.state.focusBlockIdx;
         let state = this.state.experiences[idx];
         return (
-            <SimpleBar
-                forceVisible="y"
-                autoHide={false}
-                style={{ maxHeight: "100%" }}
-                className="info"
-            >
+            <SimpleBar style={{ maxHeight: "100%" }} className="info">
                 <div className="period">
                     <i>{state.period}</i>
                 </div>
@@ -121,7 +116,7 @@ export default class ExperienceSection extends Component {
     }
 }
 
-class ExperienceBlock extends Component {
+class ExperienceBlock extends PureComponent {
     render() {
         return (
             <div

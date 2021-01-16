@@ -240,12 +240,6 @@ a:link {
 }
 
 /* Others */
-.icon {
-    text-align: center;
-
-    width: 1.5em;
-}
-
 .btn {
     cursor: pointer;
 }
