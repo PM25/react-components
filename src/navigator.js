@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./navigator.css";
-import HomeNavigator from "./homenav";
-import SideNavigator from "./sidenav";
 import OutsideClickHandler from "react-outside-click-handler";
+
+import "./navigator.css";
+import HomeNavigator from "./navigator/homenav.jsx";
+import SideNavigator from "./navigator/sidenav.jsx";
 
 export default class Navigator extends Component {
     constructor(props) {

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./navigator.css";
-import profileImg from "./img/profile.jpeg";
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
+
+// images
+import profileImg from "../img/profile.jpeg";
 
 class LinkButton extends Component {
     render() {

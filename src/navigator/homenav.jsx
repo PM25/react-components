@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-// import ReactPlayer from "react-player";
 import ReactPlayer from "react-player/lazy";
-import "./navigator.css";
 
 class Button extends Component {
     render() {
