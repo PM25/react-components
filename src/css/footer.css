@@ -1,0 +1,16 @@
+/* Footer */
+#footer {
+    position: absolute;
+    background: #ddd6;
+    text-align: center;
+    color: black;
+
+    width: 100%;
+    padding: 0.7em;
+    transition: 0.3s;
+}
+
+#footer:hover {
+    background: #454545;
+    color: white;
+}

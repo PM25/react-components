@@ -223,22 +223,6 @@ a:link {
     font-size: 30px;
 }
 
-/* Footer */
-#footer {
-    position: absolute;
-    background: #45454545;
-    text-align: center;
-    color: grey;
-
-    width: 100%;
-    padding: 1em 0;
-    transition: 0.3s;
-}
-
-#footer:hover {
-    background: #454545;
-}
-
 /* Others */
 .btn {
     cursor: pointer;
@@ -272,10 +256,6 @@ a:link {
     #home-nav a,
     #home-nav li {
         display: none;
-    }
-
-    #footer {
-        font-size: 0.7em;
     }
 }
 

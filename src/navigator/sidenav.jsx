@@ -15,37 +15,34 @@ export default class SideNavigator extends PureComponent {
                 ripple_effect: true,
                 ripple_status: false,
             },
-            homepage: {
-                text: "首頁",
-                icon: "fas fa-home",
-                url: "/homepage",
-            },
-            projects: {
-                text: "專案",
-                icon: "fas fa-flask",
-                url: "/projects",
-            },
-            articles: {
-                text: "文章",
-                icon: "fas fa-book",
-                url: "/articles",
-            },
-            about: {
-                text: "關於我",
-                icon: "far fa-user-circle",
-                url: "/",
-            },
-            comments: {
-                text: "留言",
-                icon: "far fa-comment",
-                url: "/comment",
-            },
-            reports: {
-                text: "錯誤回報",
-                icon: "fas fa-bug",
-                url: "https://github.com/PM25/pm25.github.io/issues",
-                tab: true,
-            },
+            linkbuttons: [
+                {
+                    text: "Home",
+                    icon: "fas fa-home",
+                    url: "/homepage",
+                },
+                {
+                    text: "Projects",
+                    icon: "fas fa-flask",
+                    url: "/projects",
+                },
+                {
+                    text: "Articles",
+                    icon: "fas fa-book",
+                    url: "/articles",
+                },
+                {
+                    text: "About",
+                    icon: "far fa-user-circle",
+                    url: "/",
+                },
+                {
+                    text: "Bug Report",
+                    icon: "fas fa-bug",
+                    url: "https://github.com/PM25/pm25.github.io/issues",
+                    tab: true,
+                },
+            ],
         };
     }
 
@@ -85,17 +82,14 @@ export default class SideNavigator extends PureComponent {
                 </div>
                 <Profile
                     profile={profileImg}
-                    name={"黃品硯"}
+                    name={"Pin-Yen"}
                     quote={"Don't Think, Imagine!"}
                 ></Profile>
                 <SimpleBar className={"category"}>
                     <ul>
-                        {this.renderLinkButton(this.state.homepage)}
-                        {this.renderLinkButton(this.state.projects)}
-                        {this.renderLinkButton(this.state.articles)}
-                        {this.renderLinkButton(this.state.about)}
-                        {this.renderLinkButton(this.state.comments)}
-                        {this.renderLinkButton(this.state.reports)}
+                        {this.state.linkbuttons.map((state, key) => {
+                            return this.renderLinkButton(state);
+                        })}
                     </ul>
                 </SimpleBar>
             </div>

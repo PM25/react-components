@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 
-import "./navigator.css";
+import "./css/navigator.css";
 import HomeNavigator from "./navigator/homenav.jsx";
 import SideNavigator from "./navigator/sidenav.jsx";
 
