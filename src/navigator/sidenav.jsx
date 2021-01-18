@@ -18,17 +18,17 @@ export default class SideNavigator extends PureComponent {
             homepage: {
                 text: "首頁",
                 icon: "fas fa-home",
-                url: "/c/homepage",
+                url: "/homepage",
             },
             projects: {
                 text: "專案",
                 icon: "fas fa-flask",
-                url: "/c/projects",
+                url: "/projects",
             },
             articles: {
                 text: "文章",
                 icon: "fas fa-book",
-                url: "/c/articles",
+                url: "/articles",
             },
             about: {
                 text: "關於我",
@@ -38,7 +38,7 @@ export default class SideNavigator extends PureComponent {
             comments: {
                 text: "留言",
                 icon: "far fa-comment",
-                url: "/c/comment",
+                url: "/comment",
             },
             reports: {
                 text: "錯誤回報",

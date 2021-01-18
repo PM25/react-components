@@ -14,7 +14,7 @@ export default class HomeNavigator extends PureComponent {
             home: {
                 icon: "fas fa-home",
                 classList: [],
-                url: "/c/homepage",
+                url: "/homepage",
                 active: false,
             },
             language: {
