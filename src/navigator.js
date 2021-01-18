@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 
 import "./navigator.css";
 import HomeNavigator from "./navigator/homenav.jsx";
 import SideNavigator from "./navigator/sidenav.jsx";
 
-export default class Navigator extends Component {
+export default class Navigator extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {

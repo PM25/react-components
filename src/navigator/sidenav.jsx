@@ -1,64 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
 
 // images
 import profileImg from "../img/profile.jpeg";
 
-class LinkButton extends Component {
-    render() {
-        return (
-            <li>
-                <a
-                    href={this.props.url}
-                    target={this.props.tab ? "_blank" : ""}
-                    rel="noreferrer"
-                >
-                    <i className={this.props.icon + " icon"}></i>
-                    <span>{this.props.text}</span>
-                </a>
-            </li>
-        );
-    }
-}
-
-class RippleButton extends Component {
-    render() {
-        return (
-            <div
-                className={"btn " + this.props.classList.join(" ")}
-                onClick={() => this.props.onClick()}
-                onMouseDown={() => this.props.onMouseDown()}
-            >
-                <i className={this.props.icon}>
-                    <div
-                        className={
-                            this.props.ripple_status ? "ripple-effect" : ""
-                        }
-                    ></div>
-                </i>
-            </div>
-        );
-    }
-}
-
-class Profile extends Component {
-    render() {
-        return (
-            <div className="profile">
-                <img
-                    id="profile-img"
-                    src={this.props.profile}
-                    alt="Profile"
-                ></img>
-                <span id="profile-name"> {this.props.name} </span>
-                <span id="profile-quote"> {this.props.quote} </span>
-            </div>
-        );
-    }
-}
-
-export default class SideNavigator extends Component {
+export default class SideNavigator extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -178,4 +125,45 @@ export default class SideNavigator extends Component {
             ></RippleButton>
         );
     }
+}
+
+function LinkButton(props) {
+    return (
+        <li>
+            <a
+                href={props.url}
+                target={props.tab ? "_blank" : ""}
+                rel="noreferrer"
+            >
+                <i className={props.icon + " icon"}></i>
+                <span>{props.text}</span>
+            </a>
+        </li>
+    );
+}
+
+function RippleButton(props) {
+    return (
+        <div
+            className={"btn " + props.classList.join(" ")}
+            onClick={() => props.onClick()}
+            onMouseDown={() => props.onMouseDown()}
+        >
+            <i className={props.icon}>
+                <div
+                    className={props.ripple_status ? "ripple-effect" : ""}
+                ></div>
+            </i>
+        </div>
+    );
+}
+
+function Profile(props) {
+    return (
+        <div className="profile">
+            <img id="profile-img" src={props.profile} alt="Profile"></img>
+            <span id="profile-name"> {props.name} </span>
+            <span id="profile-quote"> {props.quote} </span>
+        </div>
+    );
 }

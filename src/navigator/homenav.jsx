@@ -1,46 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import ReactPlayer from "react-player/lazy";
 
-class Button extends Component {
-    render() {
-        return (
-            <li
-                className={"btn " + this.props.classList.join(" ")}
-                onClick={() => this.props.onClick()}
-            >
-                {this.props.url ? (
-                    <a href={this.props.url}>
-                        <i className={this.props.icon}></i>
-                    </a>
-                ) : (
-                    <i className={this.props.icon}></i>
-                )}
-            </li>
-        );
-    }
-}
-
-class RippleButton extends Component {
-    render() {
-        return (
-            <li
-                className={"btn icons " + this.props.classList.join(" ")}
-                onClick={() => this.props.onClick()}
-                onMouseDown={() => this.props.onMouseDown()}
-            >
-                <i className={this.props.icon}>
-                    <div
-                        className={
-                            this.props.ripple_status ? "ripple-effect" : ""
-                        }
-                    ></div>
-                </i>
-            </li>
-        );
-    }
-}
-
-export default class HomeNavigator extends Component {
+export default class HomeNavigator extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -236,4 +197,37 @@ export default class HomeNavigator extends Component {
             </div>
         );
     }
+}
+
+function Button(props) {
+    return (
+        <li
+            className={"btn " + props.classList.join(" ")}
+            onClick={() => props.onClick()}
+        >
+            {props.url ? (
+                <a href={props.url}>
+                    <i className={props.icon}></i>
+                </a>
+            ) : (
+                <i className={props.icon}></i>
+            )}
+        </li>
+    );
+}
+
+function RippleButton(props) {
+    return (
+        <li
+            className={"btn icons " + props.classList.join(" ")}
+            onClick={() => props.onClick()}
+            onMouseDown={() => props.onMouseDown()}
+        >
+            <i className={props.icon}>
+                <div
+                    className={props.ripple_status ? "ripple-effect" : ""}
+                ></div>
+            </i>
+        </li>
+    );
 }
