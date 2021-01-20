@@ -7,3 +7,4 @@ Current Components:
 -   Navigator
     -   Home Navigator
     -   Side Navigator
+-   Footer
