@@ -4,8 +4,9 @@
     background: #ddd6;
     text-align: center;
     color: black;
+    box-sizing: border-box;
 
-    width: 100%;
+    width: 100vw;
     padding: 0.7em;
     transition: 0.3s;
 }
