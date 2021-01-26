@@ -56,6 +56,11 @@
     width: 0;
 }
 
+#home-nav .show {
+    display: block !important;
+    /* visibility: visible; */
+}
+
 #home-nav .active {
     background: #aaa9;
 }
@@ -88,9 +93,9 @@
     position: fixed;
     user-select: none;
 
-    left: -250px;
+    left: -12em;
     top: 0;
-    width: 250px;
+    width: 12em;
     height: 100%;
     font-size: 1.3em;
     transition: transform 0.15s;
@@ -99,7 +104,7 @@
 }
 
 .show-sidenav {
-    transform: translate3d(250px, 0, 0);
+    transform: translate3d(12em, 0, 0);
 }
 
 #side-nav a {
@@ -149,7 +154,7 @@
     overflow: auto;
 
     width: 100%;
-    height: calc(100% - 215px);
+    height: 100%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -163,7 +168,7 @@
     background: #2ca8c7;
     background-image: radial-gradient(circle, #5fd4f1, #1c9bbb);
 
-    height: 215px;
+    height: 10em;
     width: 100%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }

@@ -7,6 +7,7 @@ export default class HomeNavigator extends PureComponent {
         this.state = {
             sidenav: {
                 icon: "fas fa-bars sidenav-btn ripple",
+                classList: ["show"],
                 ripple_status: false,
                 onMouseDown: this.showRipple,
                 onMouseUp: this.toggleSidenav,
@@ -19,21 +20,21 @@ export default class HomeNavigator extends PureComponent {
             },
             language: {
                 icon: "fas fa-language",
-                classList: [],
+                classList: ["show"],
                 active: false,
                 active_effect: true,
                 onClick: this.toggleLanguage,
             },
             music: {
                 icon: "fas fa-music",
-                classList: [],
+                classList: ["show"],
                 active: false,
                 active_effect: true,
                 onClick: this.toggleMusic,
             },
             toggleToolbar: {
                 icon: "fas fa-caret-right",
-                classList: [],
+                classList: ["show"],
                 active: false,
                 active_effect: false,
                 onClick: this.toggleToolbar,
@@ -140,6 +141,7 @@ export default class HomeNavigator extends PureComponent {
         return (
             <RippleButton
                 icon={state.icon}
+                classList={state.classList}
                 ripple_status={state.ripple_status}
                 onClick={state.onMouseUp}
                 onMouseDown={state.onMouseDown}
@@ -166,7 +168,7 @@ export default class HomeNavigator extends PureComponent {
 function Button(props) {
     return (
         <li
-            className={"btn " + props.classList}
+            className={"btn " + props.classList.join(" ")}
             onClick={() => props.onClick()}
         >
             {props.url ? (
@@ -183,7 +185,7 @@ function Button(props) {
 function RippleButton(props) {
     return (
         <li
-            className={"btn icons"}
+            className={"btn icons " + props.classList}
             onClick={() => props.onClick()}
             onMouseDown={() => props.onMouseDown()}
         >
