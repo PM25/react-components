@@ -143,11 +143,8 @@ function RippleButton(props) {
             onClick={() => props.onClick()}
             onMouseDown={() => props.onMouseDown()}
         >
-            <i className={props.icon}>
-                <div
-                    className={props.ripple_status ? "ripple-effect" : ""}
-                ></div>
-            </i>
+            <i className={props.icon}></i>
+            <div className={props.ripple_status ? "ripple-effect" : ""}></div>
         </div>
     );
 }

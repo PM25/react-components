@@ -58,7 +58,6 @@
 
 #home-nav .show {
     display: block !important;
-    /* visibility: visible; */
 }
 
 #home-nav .active {
@@ -93,9 +92,9 @@
     position: fixed;
     user-select: none;
 
-    left: -12em;
+    left: -11em;
     top: 0;
-    width: 12em;
+    width: 11em;
     height: 100%;
     font-size: 1.3em;
     transition: transform 0.15s;
@@ -104,7 +103,7 @@
 }
 
 .show-sidenav {
-    transform: translate3d(12em, 0, 0);
+    transform: translate3d(11em, 0, 0);
 }
 
 #side-nav a {
@@ -219,15 +218,15 @@
     position: absolute;
     overflow: hidden;
 
-    top: -5px;
-    left: -7px;
-    width: 32px;
-    height: 32px;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
     opacity: 1;
     border-radius: 50%;
     transform: scale(0);
     background: rgba(0, 0, 0, 0.15);
-    animation: ripple 0.15s ease-out forwards;
+    animation: ripple 0.3s ease-out forwards;
 }
 
 @media only screen and (max-width: 700px) {

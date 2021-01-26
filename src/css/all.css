@@ -15,15 +15,16 @@ body {
     min-height: 100%;
     width: 100%;
     min-height: 100vh;
+    background-color: #fafafa;
+}
+
+#main {
+    min-height: 100vh;
 }
 
 a:visited,
 a:link {
     color: inherit;
-}
-
-body {
-    background-color: #fafafa;
 }
 
 a {
