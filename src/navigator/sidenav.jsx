@@ -19,7 +19,7 @@ export default class SideNavigator extends PureComponent {
                 {
                     text: "Home",
                     icon: "fas fa-home",
-                    url: "/homepage",
+                    url: "/home",
                 },
                 {
                     text: "Project",
