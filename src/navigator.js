@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { HashRouter as Router } from "react-router-dom";
 import OutsideClickHandler from "react-outside-click-handler";
 
 import "./css/all.css";
@@ -25,7 +26,7 @@ export default class Navigator extends PureComponent {
     render() {
         return (
             <OutsideClickHandler onOutsideClick={this.closeSidenav}>
-                <div name="navigator">
+                <Router>
                     <HomeNavigator
                         toggleSidenav={this.toggleSidenav}
                     ></HomeNavigator>
@@ -33,7 +34,7 @@ export default class Navigator extends PureComponent {
                         show={this.state.showing}
                         toggleSidenav={this.toggleSidenav}
                     ></SideNavigator>
-                </div>
+                </Router>
             </OutsideClickHandler>
         );
     }

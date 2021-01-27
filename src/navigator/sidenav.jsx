@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { Link } from "react-router-dom";
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
 
@@ -124,14 +125,14 @@ export default class SideNavigator extends PureComponent {
 function LinkButton(props) {
     return (
         <li>
-            <a
-                href={props.url}
+            <Link
+                to={props.url}
                 target={props.tab ? "_blank" : ""}
                 rel="noreferrer"
             >
                 <i className={props.icon + " icon"}></i>
                 <span>{props.text}</span>
-            </a>
+            </Link>
         </li>
     );
 }

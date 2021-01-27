@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import ReactPlayer from "react-player/lazy";
+import { Link } from "react-router-dom";
 
 export default class HomeNavigator extends PureComponent {
     constructor(props) {
@@ -123,7 +124,7 @@ export default class HomeNavigator extends PureComponent {
             <nav id="home-nav">
                 <ul>
                     {this.renderRippleButton(this.state.sidenav)}
-                    {this.renderButton(this.state.home)}
+                    {this.renderLinkButton(this.state.home)}
                     {this.renderButton(this.state.music)}
                     {this.renderButton(this.state.language)}
                     {this.renderButton(this.state.toggleToolbar)}
@@ -158,9 +159,22 @@ export default class HomeNavigator extends PureComponent {
             <Button
                 icon={state.icon}
                 classList={classList}
-                url={state.url}
                 onClick={state.onClick}
             ></Button>
+        );
+    }
+
+    renderLinkButton(state) {
+        let classList = state.classList.slice();
+        if (state.active_effect && state.active) {
+            classList.push("active");
+        }
+        return (
+            <LinkButton
+                icon={state.icon}
+                classList={classList}
+                url={state.url}
+            ></LinkButton>
         );
     }
 }
@@ -171,13 +185,17 @@ function Button(props) {
             className={"btn " + props.classList.join(" ")}
             onClick={() => props.onClick()}
         >
-            {props.url ? (
-                <a href={props.url}>
-                    <i className={props.icon}></i>
-                </a>
-            ) : (
+            <i className={props.icon}></i>
+        </li>
+    );
+}
+
+function LinkButton(props) {
+    return (
+        <li className={"btn " + props.classList.join(" ")}>
+            <Link to={props.url}>
                 <i className={props.icon}></i>
-            )}
+            </Link>
         </li>
     );
 }
