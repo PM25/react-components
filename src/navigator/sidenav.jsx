@@ -98,14 +98,22 @@ export default class SideNavigator extends PureComponent {
     }
 
     renderLinkButton(state) {
-        return (
-            <LinkButton
-                text={state.text}
-                icon={state.icon}
-                url={state.url}
-                tab={state.tab}
-            ></LinkButton>
-        );
+        if (state.tab)
+            return (
+                <ExternalLinkButton
+                    text={state.text}
+                    icon={state.icon}
+                    url={state.url}
+                ></ExternalLinkButton>
+            );
+        else
+            return (
+                <LinkButton
+                    text={state.text}
+                    icon={state.icon}
+                    url={state.url}
+                ></LinkButton>
+            );
     }
 
     renderRippleButton(state, onClick, onMouseDown) {
@@ -125,14 +133,21 @@ export default class SideNavigator extends PureComponent {
 function LinkButton(props) {
     return (
         <li>
-            <Link
-                to={props.url}
-                target={props.tab ? "_blank" : ""}
-                rel="noreferrer"
-            >
+            <Link to={props.url}>
                 <i className={props.icon + " icon"}></i>
                 <span>{props.text}</span>
             </Link>
+        </li>
+    );
+}
+
+function ExternalLinkButton(props) {
+    return (
+        <li>
+            <a href={props.url} target={"_blank"} rel="noreferrer">
+                <i className={props.icon + " icon"}></i>
+                <span>{props.text}</span>
+            </a>
         </li>
     );
 }
