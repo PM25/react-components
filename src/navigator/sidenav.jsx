@@ -89,31 +89,33 @@ export default class SideNavigator extends PureComponent {
                 <SimpleBar className={"category"}>
                     <ul>
                         {this.state.linkbuttons.map((state, key) => {
-                            return this.renderLinkButton(state);
+                            if (state.tab)
+                                return (
+                                    <li key={key}>
+                                        <ExternalLinkButton
+                                            id={key}
+                                            text={state.text}
+                                            icon={state.icon}
+                                            url={state.url}
+                                        ></ExternalLinkButton>
+                                    </li>
+                                );
+                            else
+                                return (
+                                    <li key={key}>
+                                        <LinkButton
+                                            id={key}
+                                            text={state.text}
+                                            icon={state.icon}
+                                            url={state.url}
+                                        ></LinkButton>
+                                    </li>
+                                );
                         })}
                     </ul>
                 </SimpleBar>
             </div>
         );
-    }
-
-    renderLinkButton(state) {
-        if (state.tab)
-            return (
-                <ExternalLinkButton
-                    text={state.text}
-                    icon={state.icon}
-                    url={state.url}
-                ></ExternalLinkButton>
-            );
-        else
-            return (
-                <LinkButton
-                    text={state.text}
-                    icon={state.icon}
-                    url={state.url}
-                ></LinkButton>
-            );
     }
 
     renderRippleButton(state, onClick, onMouseDown) {
@@ -132,23 +134,19 @@ export default class SideNavigator extends PureComponent {
 
 function LinkButton(props) {
     return (
-        <li>
-            <Link to={props.url}>
-                <i className={props.icon + " icon"}></i>
-                <span>{props.text}</span>
-            </Link>
-        </li>
+        <Link to={props.url}>
+            <i className={props.icon + " icon"}></i>
+            <span>{props.text}</span>
+        </Link>
     );
 }
 
 function ExternalLinkButton(props) {
     return (
-        <li>
-            <a href={props.url} target={"_blank"} rel="noreferrer">
-                <i className={props.icon + " icon"}></i>
-                <span>{props.text}</span>
-            </a>
-        </li>
+        <a href={props.url} target={"_blank"} rel="noreferrer">
+            <i className={props.icon + " icon"}></i>
+            <span>{props.text}</span>
+        </a>
     );
 }
 

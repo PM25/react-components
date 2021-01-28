@@ -6,8 +6,8 @@ import Footer from "./footer";
 
 ReactDOM.render(
     <React.StrictMode>
-        <Navigator></Navigator>
-        <Footer></Footer>
+        <Navigator />
+        <Footer />
     </React.StrictMode>,
     document.getElementById("root")
 );
