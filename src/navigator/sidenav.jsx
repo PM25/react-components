@@ -47,16 +47,16 @@ export default class SideNavigator extends PureComponent {
         };
     }
 
-    SidenavOn() {
+    onSidenav = () => {
         this.setState((prevState) => ({
             sidenav: {
                 ...prevState.sidenav,
                 ripple_status: true,
             },
         }));
-    }
+    };
 
-    toggleSidenav() {
+    toggleSidenav = () => {
         this.props.toggleSidenav();
         setTimeout(() => {
             this.setState((prevState) => ({
@@ -66,7 +66,7 @@ export default class SideNavigator extends PureComponent {
                 },
             }));
         }, 200);
-    }
+    };
 
     render() {
         return (
@@ -77,8 +77,8 @@ export default class SideNavigator extends PureComponent {
                 <div className="sidenav-btn-wrapper">
                     {this.renderRippleButton(
                         this.state.sidenav,
-                        () => this.toggleSidenav(),
-                        () => this.SidenavOn()
+                        this.toggleSidenav,
+                        this.onSidenav
                     )}
                 </div>
                 <Profile
@@ -97,6 +97,7 @@ export default class SideNavigator extends PureComponent {
                                             text={state.text}
                                             icon={state.icon}
                                             url={state.url}
+                                            onClick={this.props.closeSidenav}
                                         ></ExternalLinkButton>
                                     </li>
                                 );
@@ -108,6 +109,7 @@ export default class SideNavigator extends PureComponent {
                                             text={state.text}
                                             icon={state.icon}
                                             url={state.url}
+                                            onClick={this.props.closeSidenav}
                                         ></LinkButton>
                                     </li>
                                 );
@@ -134,7 +136,7 @@ export default class SideNavigator extends PureComponent {
 
 function LinkButton(props) {
     return (
-        <Link to={props.url}>
+        <Link to={props.url} onClick={props.onClick}>
             <i className={props.icon + " icon"}></i>
             <span>{props.text}</span>
         </Link>
@@ -143,7 +145,12 @@ function LinkButton(props) {
 
 function ExternalLinkButton(props) {
     return (
-        <a href={props.url} target={"_blank"} rel="noreferrer">
+        <a
+            href={props.url}
+            target={"_blank"}
+            rel="noreferrer"
+            onClick={props.onClick}
+        >
             <i className={props.icon + " icon"}></i>
             <span>{props.text}</span>
         </a>

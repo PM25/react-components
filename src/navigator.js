@@ -33,6 +33,7 @@ export default class Navigator extends PureComponent {
                     <SideNavigator
                         show={this.state.showing}
                         toggleSidenav={this.toggleSidenav}
+                        closeSidenav={this.closeSidenav}
                     ></SideNavigator>
                 </Router>
             </OutsideClickHandler>
