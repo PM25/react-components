@@ -4,7 +4,7 @@ import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
 
 // images
-import profileImg from "../img/profile2.jpeg";
+import profileImg from "../img/profile2.webp";
 
 export default class SideNavigator extends PureComponent {
     constructor(props) {
