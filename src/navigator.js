@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import { HashRouter as Router } from "react-router-dom";
 import OutsideClickHandler from "react-outside-click-handler";
 
-import "./css/all.css";
 import "./css/navigator.css";
 import HomeNavigator from "./navigator/homenav.jsx";
 import SideNavigator from "./navigator/sidenav.jsx";
