@@ -1,9 +1,12 @@
 import React from "react";
+import "./css/loader.css";
 
 export default function Loader() {
     return (
-        <div style={{ fontSize: "5vw", textAlign: "center", padding: "0.5em" }}>
-            Loading...
+        <div className="center" style={{ height: "100vh" }}>
+            <div className="loading center" style={{ color: "#555" }}>
+                Loading...
+            </div>
         </div>
     );
 }
