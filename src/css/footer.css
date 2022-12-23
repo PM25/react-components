@@ -15,4 +15,7 @@
     background: #454545;
     color: white;
 }
- 
+
+#footer a:hover {
+    text-decoration: underline;
+}
